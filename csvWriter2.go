@@ -9,13 +9,14 @@ import (
 
 func main() {
 	var rows [][]string
+	numberOfVisitors := 100
 
 
-	for i := 1; i <= 10000000; i++ {
+	for i := 1; i <= numberOfVisitors; i++ {
 		rows = append(rows, []string{fmt.Sprintf("visitor%d", i)})
 	}
 
-	if csvfile, err := os.Create("10000000visitor.csv"); err != nil {
+	if csvfile, err := os.Create(fmt.Sprintf("%dvisitor.csv", numberOfVisitors)); err != nil {
 		println(fmt.Sprintf("failed creating file: %s", err))
 	} else {
 
